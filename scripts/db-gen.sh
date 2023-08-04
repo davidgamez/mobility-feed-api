@@ -17,7 +17,7 @@ source "$ENV_PATH"
 rm -rf "$SCRIPT_PATH/../api/src/database_gen/"
 mkdir "$SCRIPT_PATH/../api/src/database_gen/"
 pip3 install -r "${SCRIPT_PATH}/../api/requirements.txt"
-sqlacodegen "postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}" --outfile "${OUT_FILE}"
+sqlacodegen "postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_EXTERNAL_PORT}/${POSTGRES_DB}" --outfile "${OUT_FILE}"
 
 rm -rf "$TEMP_FILE"
 
