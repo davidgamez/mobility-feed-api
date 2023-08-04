@@ -18,6 +18,17 @@ Folder `api` contains source code of the API implementation. This repository rel
 
 Python == 3.11
 
+#### (optional) Create Conda environment
+```
+conda create --name <env name> python==3.11
+conda activate <env name>
+```
+
+the package `jq` is required for `scripts/api-gen.sh`, to install:
+```
+conda install -c conda-forge jq
+```
+
 ## Installation & Usage
 
 - As a one time step, download the `openapi-generator-cli.sh` script using:
@@ -34,6 +45,8 @@ pip3 install -r requirements_dev.txt
 ```bash
 docker-compose --env-file ./config/.env.local  up -d --force-recreate
 ```
+By default the POSTGRES_PORT and POSTGRES_EXTERNAL_PORT use the same port. You may want to modify POSTGRES_EXTERNAL_PORT if you're running multiple instances of Postgres in your development environment.
+
 - Generates the api and database stubs on first run and everytime the schema changes
 ```bash
 scripts/api-gen.sh
