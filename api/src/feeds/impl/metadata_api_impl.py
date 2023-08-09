@@ -1,3 +1,5 @@
+import asyncio
+
 from feeds_gen.apis.metadata_api_base import BaseMetadataApi
 from feeds_gen.models.metadata import Metadata
 
@@ -8,8 +10,10 @@ class MetadataApiImpl(BaseMetadataApi):
     All methods from the parent class `feeds_gen.apis.metadata_api_base.BaseMetadataApi` should be implemented.
     If a method is left blank the associated endpoint will return a 500 HTTP response.
     """
-    async def get_metadata(
-        self,
+
+    def get_metadata(
+            self,
     ) -> Metadata:
         """Get metadata about this API."""
+        # adding here a dummy implementation to test the endpoint
         return Metadata(version="0.0.0")
