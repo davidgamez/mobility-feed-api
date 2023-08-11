@@ -11,7 +11,7 @@ from feeds_gen.models.gtfs_feed import GtfsFeed
 from feeds_gen.models.gtfs_rt_feed import GtfsRTFeed
 from feeds_gen.models.latest_dataset import LatestDataset
 from feeds_gen.models.source_info import SourceInfo
-
+import authorization.validator as validator
 
 class FeedsApiImpl(BaseFeedsApi):
     """
@@ -38,7 +38,8 @@ class FeedsApiImpl(BaseFeedsApi):
     ) -> List[FeedLog]:
         """Get a list of logs related to a feed."""
         return []
-
+    
+    
     def get_feeds(
             self,
             limit: int,
@@ -47,6 +48,7 @@ class FeedsApiImpl(BaseFeedsApi):
             sort: str,
     ) -> List[BasicFeed]:
         """Get some (or all) feeds from the Mobility Database."""
+        validator.validate()
         return [self.get_feed("gtfsFeedFoo")]
 
     def get_gtfs_feed(

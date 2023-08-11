@@ -24,6 +24,8 @@ Python == 3.11
 ```bash
 scripts/setup-openapi-generator.sh
 ```
+jq 
+maven
 - Install dependencies
 ```bash
 cd api
